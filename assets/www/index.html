@@ -1,11 +1,142 @@
-<!DOCTYPE HTML>
-<html>
+
+
+<!DOCTYPE html>
+<html class="ui-mobile-rendering">
 <head>
-<title>Habits Tracker</title>
-<script type="text/javascript" charset="utf-8" src="cordova-1.6.1.js"></script>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css"/>
+
+    <!-- The Templates -->
+    <script type="text/template" id="home">
+
+     
+       <div data-role="header" data-theme="b" data-position="fixed">
+            <h1>Habits Tracker</h1>
+        </div>
+
+        <div data-role="content">
+            <h3>Habits Tracker</h3>
+            <p>Navigate to:</p>
+            <ul data-role="listview"  data-inset="true">
+                <li><a href="#board">Leaderboard</a></li>
+                <li><a href="#tracker">Add habit</a></li>
+				<li><a href="#habits">See all habits</a></li>
+            </ul>
+        </div>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#board"  data-theme="a" data-icon="home">Board</a></li>
+				<li><a href="#tracker" data-theme="a" data-icon="check">Track</a></li>
+				<li><a href="#habits" data-theme="a" data-icon="gear">Habits</a></li>
+			</ul>
+		</div>
+
+    </script>
+
+    
+    
+    <script type="text/template" id="board">
+       <div data-role="header" data-theme="b" data-position="fixed">
+            <a href="#home" data-icon="back" class="back ui-btn-left">Home</a>
+            <h1>Board</h1>
+        </div>
+		
+		<div data-role="content">
+           <span id="Introduction">Hi Antoine, here is your weekly performance</span>
+
+		<ul id="habit_item" data-role="listview" data-inset="true" data-theme="d" data-divider-theme="e" data-count-theme="b">
+			<li><div class="ui-progressbar ui-widget ui-widget-content ui-corner-all">
+			<div style="width: 93%;" class="ui-progressbar-value ui-widget-header ui-corner-left">Habit 1</div></div></li>
+			<li><div class="ui-progressbar ui-widget ui-widget-content ui-corner-all">
+			<div style="width: 84%;" class="ui-progressbar-value ui-widget-header ui-corner-left">Habit 2</div></div></li>
+			<li><div class="ui-progressbar ui-widget ui-widget-content ui-corner-all">
+			<div style="width: 54%;" class="ui-progressbar-value ui-widget-header ui-corner-left">Habit 3</div></div></li>
+			<li><div class="ui-progressbar ui-widget ui-widget-content ui-corner-all">
+			<div style="width: 99%;" class="ui-progressbar-value ui-widget-header ui-corner-left">Habit 4</div></div></li>
+			<li> <div class="ui-progressbar ui-widget ui-widget-content ui-corner-all">
+			<div style="width: 37%;" class="ui-progressbar-value ui-widget-header ui-corner-left">Habit 5</div></div></li>
+
+			</ul>
+
+		<span class="Section">Keep up with your friends habits</span>
+
+		<ul id="Friends-item" data-role="listview" data-inset="true">
+			<li>Baptiste <div class="ui-progressbar ui-widget ui-widget-content ui-corner-all"><div style="width: 80%;" class="ui-progressbar-value ui-widget-header ui-corner-left">Overall performance</div></div></li>
+			<li>Vincent <div class="ui-progressbar ui-widget ui-widget-content ui-corner-all"><div style="width: 90%;" class="ui-progressbar-value ui-widget-header ui-corner-left">Overall performance</div></div></li>
+		</ul>
+		<a href="" data-role="button" data-icon="plus" data-inline="true" data-theme="b">Add friends</a>
+            
+        </div>
+		
+
+		<div data-role="footer" data-theme="a" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#board" class="ui-btn-active" data-theme="a" data-icon="home">Board</a></li>
+					<li><a href="#tracker" data-theme="a" data-icon="check">Track</a></li>
+					<li><a href="#habits" data-theme="a" data-icon="gear">Habits</a></li>
+				</ul>
+			</div>
+        </div>
+
+    </script>
+    
+    <script type="text/template" id="tracker">
+        <div data-role="header" data-theme="b" data-position="fixed">
+            <a href="#home" data-icon="back" class="back ui-btn-left">Home</a>
+            <h1>Tracker</h1>
+        </div>
+		
+		<div data-role="content">
+            <p>This is Tracker Page. It was created dynamically using an underscore.js template.</p>
+            
+        </div>
+		<div data-role="footer" data-theme="a" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#board" data-theme="a" data-icon="home">Board</a></li>
+					<li><a href="#tracker" class="ui-btn-active" data-theme="a" data-icon="check">Track</a></li>
+					<li><a href="#habits" data-theme="a" data-icon="gear">Habits</a></li>
+				</ul>
+			</div>
+        </div>
+
+    </script>
+    
+    <script type="text/template" id="habits">
+    <div data-role="header" data-theme="b" data-position="fixed">
+            <a href="#home" data-icon="back" class="back ui-btn-left">Home</a>
+            <h1>Habits</h1>
+        </div>
+
+		<div data-role="content">
+            <p>This is Habits Page. It was created dynamically using an underscore.js template.</p>
+            
+        </div>
+		
+		<div data-role="footer" data-theme="a" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#board"  data-theme="a" data-icon="home">Board</a></li>
+					<li><a href="#tracker" data-theme="a" data-icon="check">Track</a></li>
+					<li><a href="#habits" class="ui-btn-active" data-theme="a" data-icon="gear">Habits</a></li>
+				</ul>
+			</div>
+        </div>
+        
+
+    </script>
+
+    <!-- The Scripts -->
+    <script src="lib/jquery-1.7.1.min.js"></script>
+    <script src="js/jqm-config.js"></script>
+    <script src="lib/jquery.mobile-1.0.1.min.js"></script>
+    <script src="lib/underscore-min.js"></script>
+    <script src="lib/backbone-min.js"></script>
+    <script src="js/main.js"></script>
 </head>
-<body>
-<h1>Here is the first version of the app</h1>
-<h1>Access the different features below</h1>
-</body>
+
+<body></body>
+
 </html>
