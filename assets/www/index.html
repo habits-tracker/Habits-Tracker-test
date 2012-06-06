@@ -20,14 +20,14 @@
             <p>Navigate to:</p>
             <ul data-role="listview"  data-inset="true">
                 <li><a href="#board">Leaderboard</a></li>
-                <li><a href="#tracker">Add habit</a></li>
+                <li><a href="#activities">Add habit</a></li>
 				<li><a href="#habits">See all habits</a></li>
             </ul>
         </div>
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#board"  data-theme="a" data-icon="home">Board</a></li>
-				<li><a href="#tracker" data-theme="a" data-icon="check">Track</a></li>
+				<li><a href="#activities" data-theme="a" data-icon="check">Track</a></li>
 				<li><a href="#habits" data-theme="a" data-icon="gear">Habits</a></li>
 			</ul>
 		</div>
@@ -74,7 +74,7 @@
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#board" class="ui-btn-active" data-theme="a" data-icon="home">Board</a></li>
-					<li><a href="#tracker" data-theme="a" data-icon="check">Track</a></li>
+					<li><a href="#activities" data-theme="a" data-icon="check">Track</a></li>
 					<li><a href="#habits" data-theme="a" data-icon="gear">Habits</a></li>
 				</ul>
 			</div>
@@ -82,21 +82,21 @@
 
     </script>
     
-    <script type="text/template" id="tracker">
-        <div data-role="header" data-theme="b" data-position="fixed">
-            <a href="#home" data-icon="back" class="back ui-btn-left">Home</a>
-            <h1>Tracker</h1>
-        </div>
+    <script type="text/template" data-role="page" id="activities">
+       
 		
-		<div data-role="content">
-            <p>This is Tracker Page. It was created dynamically using an underscore.js template.</p>
-            
-        </div>
+		 <div data-role="header" data-theme="b" data-position="fixed">
+        <h1>Activities</h1>
+        <a href="#" data-role="button" data-icon="add" id="add-button">Add</a>
+      </div>
+      <div data-role="content">
+          <!-- the contents of the list view will be rendered via the backbone view -->
+      </div>
 		<div data-role="footer" data-theme="a" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#board" data-theme="a" data-icon="home">Board</a></li>
-					<li><a href="#tracker" class="ui-btn-active" data-theme="a" data-icon="check">Track</a></li>
+					<li><a href="#activities" class="ui-btn-active" data-theme="a" data-icon="check">Track</a></li>
 					<li><a href="#habits" data-theme="a" data-icon="gear">Habits</a></li>
 				</ul>
 			</div>
@@ -119,13 +119,17 @@
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#board"  data-theme="a" data-icon="home">Board</a></li>
-					<li><a href="#tracker" data-theme="a" data-icon="check">Track</a></li>
+					<li><a href="#activities" data-theme="a" data-icon="check">Track</a></li>
 					<li><a href="#habits" class="ui-btn-active" data-theme="a" data-icon="gear">Habits</a></li>
 				</ul>
 			</div>
         </div>
         
 
+    </script>
+
+	<script type="text/template" id="activity-list-item-template">    
+      <li><a href="#activity-details" identifier="<%= id %>"><%= date %> - <%= type %></a></li>
     </script>
 
     <!-- The Scripts -->
@@ -135,6 +139,7 @@
     <script src="lib/underscore-min.js"></script>
     <script src="lib/backbone-min.js"></script>
     <script src="js/main.js"></script>
+      <script src="js/app.js"></script>
 </head>
 
 <body></body>
